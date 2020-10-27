@@ -33,13 +33,15 @@ public class StudentContact {
   @Column(name = "student_contact_id", nullable = false, updatable = false)
   private Long id;
 
+  @NonNull
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "student_id")
-  private long studentId;
+  @JoinColumn(name = "student_id", nullable = false, updatable = false)
+  private Student student;
 
+  @NonNull
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "contact_id")
-  private long contactId;
+  @JoinColumn(name = "contact_id", nullable = false, updatable = false)
+  private Contact contact;
 
   private boolean primary;
 
@@ -57,20 +59,22 @@ public class StudentContact {
     return id;
   }
 
-  public long getStudentId() {
-    return studentId;
+  @NonNull
+  public Student getStudent() {
+    return student;
   }
 
-  public void setStudentId(long studentId) {
-    this.studentId = studentId;
+  public void setStudent(@NonNull Student student) {
+    this.student = student;
   }
 
-  public long getContactId() {
-    return contactId;
+  @NonNull
+  public Contact getContact() {
+    return contact;
   }
 
-  public void setContactId(long contactId) {
-    this.contactId = contactId;
+  public void setContact(@NonNull Contact contact) {
+    this.contact = contact;
   }
 
   public boolean isPrimary() {
@@ -86,7 +90,8 @@ public class StudentContact {
     return relationshipType;
   }
 
-  public void setRelationshipType(@NonNull RelationshipType relationshipType) {
+  public void setRelationshipType(
+      @NonNull RelationshipType relationshipType) {
     this.relationshipType = relationshipType;
   }
 }
