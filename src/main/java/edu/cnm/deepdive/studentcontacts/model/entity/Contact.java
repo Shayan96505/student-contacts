@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.studentcontacts.model.entity;
 
-import com.sun.istack.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
